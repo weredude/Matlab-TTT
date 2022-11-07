@@ -4,8 +4,6 @@
 
 
 
-
-
 %get slot number and convert to indexes
 moveSlot = get(gcbo, 'userdata');
 [moveIndex1, moveIndex2] = Slot2Vector(moveSlot);

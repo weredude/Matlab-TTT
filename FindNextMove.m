@@ -1,21 +1,18 @@
-%this function is very messy
-%cant access workspace variables so filledR, filledC etc must be passed
+
 
 
 if strcmp(mode,'expert')
-    %if the board is empty move in the center
-    if turnCount == 0
-        moveIndex1 = 2;
-        moveIndex2 = 2;
     %check for win
     [moveIndex1, moveIndex2, didWinOrBlock] = WinOrBlock(filledRows, filledColumns, filledDiagonals, gameState, xOrOValue);
-    elseif ~didWinOrBlock
+    if ~didWinOrBlock
         %check for block
         [moveIndex1, moveIndex2, didWinOrBlock] = WinOrBlock(filledRows, filledColumns, filledDiagonals, gameState, -xOrOValue);
         if ~didWinOrBlock
             %rest of decision making
         end
     end
+end
+
 
 elseif strcmp(mode,'medium')
     %look if a win is possible
@@ -40,7 +37,7 @@ else
     moveIndex2 = openSpotsC(randIndex);
 end
         
-%nested function can access the variables in the outer function
+
 function[index1, index2, foundOption] = WinOrBlock(filledR, filledC, filledD, state, turnVar)
     %look for a win or a block
     rIndex = find(filledR == 2*turnVar);
