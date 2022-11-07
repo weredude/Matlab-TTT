@@ -11,8 +11,6 @@ if strcmp(mode,'expert')
             %rest of decision making
         end
     end
-end
-
 
 elseif strcmp(mode,'medium')
     %look if a win is possible
