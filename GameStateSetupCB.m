@@ -9,6 +9,9 @@ filledDiagonals = zeros(1,2);
 gameState = zeros(3,3);
 xOrOValue = 1;
 turnCount = 0;
+gameOver = false;
+moveIndex1 = 0;
+moveIndex2 = 0;
 
 mode = 'medium';
 first2Move = 'human';
