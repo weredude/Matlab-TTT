@@ -19,21 +19,15 @@ else
 end
 %disable button
 set(gcbo, 'Enable', 'off');
-if humanVsHuman
-    playerMove = playerMove * -1;
-end
 
 CheckForWin;
 %if no win or tie
-if ~gameOver && ~humanVsHuman
-    %find the computer's move
+if ~gameOver
+    %find the comp
     FindNextMove;
-    %log the indexes into the win vectors
     xOrOValue = computerMove;
     RecordMove;
-    %assign gamestate value to -1 or 1(x or o)
     gameState(moveIndex1,moveIndex2) = computerMove;
-    %grab slot from double index
     moveSlot = Vector2Slot(moveIndex1,moveIndex2);
     if computerMove == 1
         set(findobj('userdata',moveSlot),'string','X');
@@ -42,8 +36,7 @@ if ~gameOver && ~humanVsHuman
     end
     set(findobj('userdata',moveSlot),'Enable', 'off');
     CheckForWin;
-elseif gameOver
-    %gameover => disable all slots
+else
     for slotNum = 1:9
         set(findobj('tag', ['Slot',num2str(slotNum)]), 'Enable', 'off');
     end

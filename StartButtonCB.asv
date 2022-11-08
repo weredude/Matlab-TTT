@@ -1,0 +1,10 @@
+
+if strcmp(first2Move, 'computer')
+    FindNextMove;
+    xOrOValue = computerMove;
+    RecordMove;
+    gameState(moveIndex1,moveIndex2) = computerMove;
+    moveSlot = Vector2Slot(moveIndex1,moveIndex2);
+    set(findobj('userdata',moveSlot),'string','X');
+    set(findobj('tag', 'StartButtonPB'),'Enable', 'off');
+end
