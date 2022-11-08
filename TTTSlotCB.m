@@ -37,6 +37,7 @@ if ~gameOver
     CheckForWin;
 else
     for slotNum = 1:9
+        fprintf('%f\n',slotNum)
         set(findobj('tag', ['Slot',num2str(slotNum)]), 'Enable', 'off');
     end
 end
